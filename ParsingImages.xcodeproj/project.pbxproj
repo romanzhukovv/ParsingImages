@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC2C7BFD27C1720800070F48 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2C7BFC27C1720800070F48 /* NetworkManager.swift */; };
+		FC2C7BFF27C1738C00070F48 /* ImagesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2C7BFE27C1738C00070F48 /* ImagesListViewController.swift */; };
+		FC7AD8F727C17EC800F86F56 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7AD8F627C17EC800F86F56 /* Image.swift */; };
+		FC7AD8F927C199D500F86F56 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7AD8F827C199D500F86F56 /* ImageCache.swift */; };
 		FCED563327C048F30011DEB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCED563227C048F30011DEB0 /* AppDelegate.swift */; };
 		FCED563527C048F30011DEB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCED563427C048F30011DEB0 /* SceneDelegate.swift */; };
 		FCED563727C048F30011DEB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCED563627C048F30011DEB0 /* ViewController.swift */; };
@@ -16,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FC2C7BFC27C1720800070F48 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		FC2C7BFE27C1738C00070F48 /* ImagesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListViewController.swift; sourceTree = "<group>"; };
+		FC7AD8F627C17EC800F86F56 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		FC7AD8F827C199D500F86F56 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		FCED562F27C048F30011DEB0 /* ParsingImages.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParsingImages.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCED563227C048F30011DEB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCED563427C048F30011DEB0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				FCED563627C048F30011DEB0 /* ViewController.swift */,
+				FC2C7BFE27C1738C00070F48 /* ImagesListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -72,6 +81,23 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		FC2C7BFB27C171F300070F48 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FC2C7BFC27C1720800070F48 /* NetworkManager.swift */,
+				FC7AD8F827C199D500F86F56 /* ImageCache.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		FC7AD8F527C17EB600F86F56 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FC7AD8F627C17EC800F86F56 /* Image.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		FCED562627C048F30011DEB0 = {
 			isa = PBXGroup;
 			children = (
@@ -91,7 +117,9 @@
 		FCED563127C048F30011DEB0 /* ParsingImages */ = {
 			isa = PBXGroup;
 			children = (
+				FC7AD8F527C17EB600F86F56 /* Models */,
 				FC2C7BF727C1714D00070F48 /* SupportingFiles */,
+				FC2C7BFB27C171F300070F48 /* Services */,
 				FC2C7BF827C1718100070F48 /* ViewControllers */,
 				FC2C7BF927C1719200070F48 /* Storyboards */,
 				FC2C7BFA27C171B300070F48 /* Resources */,
@@ -170,7 +198,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC7AD8F927C199D500F86F56 /* ImageCache.swift in Sources */,
+				FC2C7BFD27C1720800070F48 /* NetworkManager.swift in Sources */,
+				FC7AD8F727C17EC800F86F56 /* Image.swift in Sources */,
 				FCED563727C048F30011DEB0 /* ViewController.swift in Sources */,
+				FC2C7BFF27C1738C00070F48 /* ImagesListViewController.swift in Sources */,
 				FCED563327C048F30011DEB0 /* AppDelegate.swift in Sources */,
 				FCED563527C048F30011DEB0 /* SceneDelegate.swift in Sources */,
 			);
@@ -323,7 +355,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4ARG8W2BQX;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ParsingImages/Info.plist;
+				INFOPLIST_FILE = ParsingImages/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -353,7 +385,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4ARG8W2BQX;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ParsingImages/Info.plist;
+				INFOPLIST_FILE = ParsingImages/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
