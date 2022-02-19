@@ -27,7 +27,16 @@ class ImagesListViewController: UITableViewController {
         let image = images[indexPath.row]
         cell.textLabel?.text = image.id
         cell.detailTextLabel?.text = "456456"
-        cell.imageView?.image = UIImage(named: "swiftimage50x50")
+        
+        guard let url = URL(string: image.urls.small) else { return cell }
+        getImage(from: url) { result in
+            switch result {
+            case .success(let image):
+                cell.imageView?.image = image
+            case .failure(let error):
+                print(error)
+            }
+        }
         
         return cell
     }
@@ -54,6 +63,18 @@ extension ImagesListViewController {
                 self.tableView.reloadData()
             case .failure(let error):
                 print(error)
+            }
+        }
+    }
+    
+    private func getImage(from url: URL, completion: @escaping(Result<UIImage, Error>) -> Void){
+        NetworkManager.shared.fetchImage(from: url) { result in
+            switch result {
+            case .success(let data):
+                guard let image = UIImage(data: data) else { return }
+                completion(.success(image))
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
     }

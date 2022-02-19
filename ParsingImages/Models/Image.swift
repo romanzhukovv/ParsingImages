@@ -9,4 +9,10 @@ import Foundation
 
 struct Image: Decodable {
     let id: String
+    let urls : Images
 }
+
+struct Images: Decodable {
+    let small: String
+}
+
