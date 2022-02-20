@@ -23,35 +23,24 @@ class ImagesListViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "imageCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "imageCell", for: indexPath) as! ImageCell
         let image = images[indexPath.row]
-        cell.textLabel?.text = image.id
-        cell.detailTextLabel?.text = "456456"
-        
-        guard let url = URL(string: image.urls.small) else { return cell }
-        getImage(from: url) { result in
-            switch result {
-            case .success(let image):
-                cell.imageView?.image = image
-            case .failure(let error):
-                print(error)
-            }
-        }
-        
+        cell.configure(with: image)
         return cell
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        265
     }
-    */
 
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        let image = images[indexPath.row]
+        let imageVC = segue.destination as! ImageViewController
+        imageVC.image = image
+    }
 }
 
 extension ImagesListViewController {
@@ -63,18 +52,6 @@ extension ImagesListViewController {
                 self.tableView.reloadData()
             case .failure(let error):
                 print(error)
-            }
-        }
-    }
-    
-    private func getImage(from url: URL, completion: @escaping(Result<UIImage, Error>) -> Void){
-        NetworkManager.shared.fetchImage(from: url) { result in
-            switch result {
-            case .success(let data):
-                guard let image = UIImage(data: data) else { return }
-                completion(.success(image))
-            case .failure(let error):
-                completion(.failure(error))
             }
         }
     }

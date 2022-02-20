@@ -8,11 +8,17 @@
 import Foundation
 
 struct Image: Decodable {
-    let id: String
+    let likes: Int
     let urls : Images
+    let user: User
 }
 
 struct Images: Decodable {
     let small: String
+    let full: String
+}
+
+struct User: Decodable {
+    let name: String
 }
 
