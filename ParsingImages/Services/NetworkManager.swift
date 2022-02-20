@@ -13,10 +13,11 @@ enum NetworkError: Error {
     case decodingError
 }
 
-let url = "https://api.unsplash.com/photos?per_page=30&client_id=j0jvFBCxGG342dl2oyuw497E6Eh7eMvCOQz8gu-U5Ow"
 
 class NetworkManager {
     static let shared = NetworkManager()
+    
+    private let url = "https://api.unsplash.com/photos?per_page=30&client_id=j0jvFBCxGG342dl2oyuw497E6Eh7eMvCOQz8gu-U5Ow"
     
     private init() {}
     
